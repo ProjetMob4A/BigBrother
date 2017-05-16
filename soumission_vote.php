@@ -38,12 +38,14 @@ if ($avote == 0){
 
   IncrementScore($id_candidat);
   setAvote($_SESSION['id'], True);
+  header('Location: resultat.php');
 
 }
 
 else{
 
-  echo "Vous avez déjà voté";
+  // Déjà voté
+  header('Location: resultat.php');
 }
 ?>
 </body>
