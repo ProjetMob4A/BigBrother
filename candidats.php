@@ -22,6 +22,18 @@ function listAll(){
   return $req;
 }
 
+function getScore($id){
+
+  $sql = "SELECT Score FROM Candidats WHERE id_candidat = $id";
+
+  $req = mysql_query($sql);
+
+  $data = mysql_fetch_assoc($req);
+
+  return ($data['Score']);
+
+}
+
 // Score en pourcentage
 
 function Pourcentage($id){
@@ -34,17 +46,21 @@ function Pourcentage($id){
 
   $total = $data['somme'];
 
-  $sql = "Select Score FROM Candidats WHERE id_candidat = $id";
-
-  $req = mysql_query($sql);
-
-  $data = mysql_fetch_assoc($req);
-
-  $score = $data['Score'];
+  $score = getScore($id);
 
   $pourcentage = $score / $total * 100;
 
   return $pourcentage;
+}
+
+function getResults(){
+
+  $sql = "Select Nom, id_candidat, Score FROM Candidats";
+
+  $req = mysql_query($sql);
+
+  return $req;
+
 }
 
 function addCandidat($id, $nom){
