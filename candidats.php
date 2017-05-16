@@ -13,6 +13,15 @@ function IncrementScore($id){
   return 0;
 }
 
+function listAll(){
+  
+  $sql = "Select id_candidat, Nom from Candidats";
+
+  $req = mysql_query($sql);
+
+  return $req;
+}
+
 // Score en pourcentage
 
 function Pourcentage($id){
