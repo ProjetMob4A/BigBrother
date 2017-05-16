@@ -54,4 +54,12 @@ function deleteCandidat($id){
 
 }
 
+function setAllNull(){
+
+  $sql = "UPDATE Candidats SET Score = 0 WHERE 1=1";
+
+  $req = mysql_query($sql);
+
+}
+
 ?>
