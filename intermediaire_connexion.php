@@ -1,6 +1,6 @@
 <?php
 
-require('connexion.php')
+require('connexion.php');
 
 session_start();
 
@@ -34,7 +34,7 @@ $pass = $_POST["password"];
 
 $_SESSION["id"]=$id;
 
-$_SESSION["password"]=$pass
+$_SESSION["password"]=$pass;
 
 echo $id.$pass;
 
