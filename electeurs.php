@@ -80,4 +80,14 @@ function deleteElecteur($id){
 
 }
 
+// Set tous les booléens à 0
+
+function setAllAVoteToNull(){
+
+  $sql = "UPDATE Electeurs set A_vote = 0";
+
+  $req = mysql_query($sql);
+
+}
+
 ?>
