@@ -30,11 +30,11 @@ function getTokenPublicKey($id_electeur){
 
 }
 
-function encrypt($id, $message){
+function rsa_encrypt($id, $message){
 
   $rep = getTokenPublicKey($id);
 
-  $message = strToHex($message);
+  $message = strToInt($message);
 
   parse_str($rep, $output);
 
@@ -46,9 +46,9 @@ function encrypt($id, $message){
 
 }
 
-function decrypt($c){
+function rsa_decrypt($c){
 
-    return (pow($c, $ds) % $ns);
+    return intToStr(pow($c, $ds) % $ns);
 
 }
 
