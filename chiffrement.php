@@ -1,10 +1,10 @@
-<?
+<?php
 
 require_once('electeurs.php');
 
-$n_s = 1370477
-$e_s = 377
-$d_s = 112493
+$ns = 1370477;
+$es = 377;
+$ds = 112493;
 
 function getTokenPublicKey($id_electeur){
 
@@ -14,15 +14,21 @@ function getTokenPublicKey($id_electeur){
 
 function encrypt($id, $message){
 
-  ($n, $e) = getTokenPublicKey($id);
+  $rep = getTokenPublicKey($id);
+
+  parse_str($rep, $output);
+
+  $n = $output['n'];
+
+  $e = $output['e'];
 
   return (pow($message, $e) % $n);
 
 }
 
-function decrypt($n){
+function decrypt($c){
 
-    return (pow($c, $d_serv) % $n_serv);
+    return (pow($c, $ds) % $ns);
 
 }
 
