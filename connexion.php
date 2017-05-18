@@ -43,9 +43,16 @@ function destroy($id){
 
 }
 
-get checkSecret($secret_in, $id){
+function checkSecret($id, $secret_in){
   $secret = getSecret($id);
-  return $secret === $secret_input;
+
+  if ($secret === $secret_in)
+
+    return 1;
+
+  else
+
+    return 0;
 }
 
 ?>

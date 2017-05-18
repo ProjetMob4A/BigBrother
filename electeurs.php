@@ -28,13 +28,13 @@ function setAvote($id, $bool){
 
 function getSecret($id){
 
-  $sql = "Select Secret FROM Electeurs WHERE id_electeur = $id";
+  $sql = "Select secret FROM Electeurs WHERE id_electeur = $id";
 
   $req = mysql_query(securite_bdd($sql));
 
   $data = mysql_fetch_assoc($req);
 
-  return $data['Secret'];
+  return $data['secret'];
 
 }
 

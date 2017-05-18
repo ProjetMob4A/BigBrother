@@ -26,7 +26,13 @@ $db = mysql_connect('localhost', 'root', 'azerty');
 
 mysql_select_db('bigbrother',$db);
 
-// Récpère liste candidats
+session_start();
+
+if ($_SESSION['secret_checked'] != 1 or $_SESSION['password_checked'] != 1)
+
+  header('Location: index.html');
+
+// Récupère liste candidats
 
 $req = listAll();
 
