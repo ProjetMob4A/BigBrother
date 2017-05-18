@@ -1,6 +1,7 @@
 <?php
 
 require_once('securite.php');
+require_once('electeurs.php');
 
 // Page connexion
 
@@ -40,6 +41,11 @@ function destroy($id){
 
   $req = mysql_query(securite_bdd($sql));
 
+}
+
+get checkSecret($secret_in, $id){
+  $secret = getSecret($id);
+  return $secret === $secret_input;
 }
 
 ?>
