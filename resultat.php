@@ -21,7 +21,7 @@
 
 <?php
 
-require('candidats.php');
+require_once('candidats.php');
 
 $db = mysql_connect('localhost', 'root', 'azerty');
 

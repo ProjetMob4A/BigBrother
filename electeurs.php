@@ -1,6 +1,6 @@
 <?php
 
-require('securite.php');
+require_once('securite.php');
 
 // Vérifie si $id a voté ou non
 

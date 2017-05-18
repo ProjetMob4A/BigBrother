@@ -11,7 +11,7 @@
 
             $string = mysql_real_escape_string($string);
 
-            $string = addcslashes($string, '%_');
+            $string = addcslashes($string, '%');
 
         }
         return $string;

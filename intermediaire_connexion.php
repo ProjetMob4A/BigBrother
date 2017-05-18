@@ -1,7 +1,7 @@
 <?php
 
-require('connexion.php');
-require('securite.php');
+require_once('connexion.php');
+require_once('securite.php');
 
 session_start();
 
