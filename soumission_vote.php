@@ -30,7 +30,7 @@ require('electeurs.php');
 
 require('candidats.php');
 
-$id_candidat = $_POST["id"];
+$id_candidat = mysql_real_escape_string($_POST["id"]);
 
 $avote = getAvote($_SESSION['id']);
 

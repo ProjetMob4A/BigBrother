@@ -28,9 +28,9 @@ mysql_select_db('web',$db);
 
 <?php
 
-$id = $_POST["id"];
+$id = mysql_real_escape_string($_POST["id"]);
 
-$pass = $_POST["password"];
+$pass = mysql_real_escape_string($_POST["password"]);
 
 $_SESSION["id"]=$id;
 
