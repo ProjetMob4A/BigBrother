@@ -1,14 +1,28 @@
 <?
 
-function encrypt($n, $e, $m){
+require_once('electeurs.php');
 
-  return (pow($m, $e) % $n);
+$n_s = 1370477
+$e_s = 377
+$d_s = 112493
+
+function getTokenPublicKey($id_electeur){
+
+ return getCert($id_electeur); 
 
 }
 
-function decrypt($n, $d, $c){
+function encrypt($id, $message){
 
-    return (pow($c, $d) % $n);
+  ($n, $e) = getTokenPublicKey($id);
+
+  return (pow($message, $e) % $n);
+
+}
+
+function decrypt($n){
+
+    return (pow($c, $d_serv) % $n_serv);
 
 }
 
