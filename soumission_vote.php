@@ -1,6 +1,7 @@
 <?php
 
 require('connexion.php');
+require('securite.php');
 
 session_start();
 
@@ -30,7 +31,7 @@ require('electeurs.php');
 
 require('candidats.php');
 
-$id_candidat = mysql_real_escape_string($_POST["id"]);
+$id_candidat = securite_bdd($_POST["id"]);
 
 $avote = getAvote($_SESSION['id']);
 

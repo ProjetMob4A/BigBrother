@@ -1,12 +1,14 @@
 <?php
 
+require('securite.php');
+
 // Page connexion
 
 function register($id, $passwd){
 
   $sql = "INSERT INTO Users (id, Password) VALUES ($id, $passwd)";
 
-  $req = mysql_query($sql);
+  $req = mysql_query(securite_bdd($sql));
 
   return 0;
 
@@ -18,7 +20,7 @@ function checkPassword($id, $passwd_in){
 
   $sql = "SELECT Password FROM Users WHERE id = $id";
 
-  $req = mysql_query($sql);
+  $req = mysql_query(securite_bdd($sql));
 
   $data = mysql_fetch_assoc($req);
 
@@ -36,7 +38,7 @@ function destroy($id){
 
   $sql = "DELETE FROM Users WHERE id = $id";
 
-  $req = mysql_query($sql);
+  $req = mysql_query(securite_bdd($sql));
 
 }
 

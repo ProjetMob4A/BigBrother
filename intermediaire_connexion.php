@@ -1,6 +1,7 @@
 <?php
 
 require('connexion.php');
+require('securite.php');
 
 session_start();
 
@@ -28,9 +29,9 @@ mysql_select_db('web',$db);
 
 <?php
 
-$id = mysql_real_escape_string($_POST["id"]);
+$id = securite_bdd($_POST["id"]);
 
-$pass = mysql_real_escape_string($_POST["password"]);
+$pass = securite_bdd($_POST["password"]);
 
 $_SESSION["id"]=$id;
 
