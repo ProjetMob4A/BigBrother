@@ -40,5 +40,5 @@ INSERT INTO Electeurs (id_electeur, id_token, secret, A_vote) VALUES (2, 1, 'qwe
 INSERT INTO Tokens (id_token, id_cert) VALUES (0,0);
 INSERT INTO Tokens (id_token, id_cert) VALUES (1,1);
 
-INSERT INTO Certificats (id_cert, cert) VALUES (0, '(13373343543, 65537)');
-INSERT INTO Certificats (id_cert, cert) VALUES (1, '(4164642, 3)');
+INSERT INTO Certificats (id_cert, cert) VALUES (0, 'n=13373343543&e=65537');
+INSERT INTO Certificats (id_cert, cert) VALUES (1, 'n=4164642&e=3');
