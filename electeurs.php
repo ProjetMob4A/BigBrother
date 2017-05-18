@@ -1,12 +1,14 @@
 <?php
 
+require_once('securite.php');
+
 // Vérifie si $id a voté ou non
 
 function getAvote($id){
 
   $sql = "Select A_vote FROM Electeurs WHERE id_electeur = $id";
 
-  $req = mysql_query($sql);
+  $req = mysql_query(securite_bdd($sql));
 
   $data = mysql_fetch_assoc($req);
 
@@ -18,7 +20,7 @@ function setAvote($id, $bool){
 
   $sql = "UPDATE Electeurs SET A_vote=$bool WHERE id_electeur=$id";
 
-  $req = mysql_query($sql);
+  $req = mysql_query(securite_bdd($sql));
 
 }
 
@@ -26,13 +28,13 @@ function setAvote($id, $bool){
 
 function getSecret($id){
 
-  $sql = "Select Secret FROM Electeurs WHERE id_electeur = $id";
+  $sql = "Select secret FROM Electeurs WHERE id_electeur = $id";
 
-  $req = mysql_query($sql);
+  $req = mysql_query(securite_bdd($sql));
 
   $data = mysql_fetch_assoc($req);
 
-  return $data['Secret'];
+  return $data['secret'];
 
 }
 
@@ -42,7 +44,7 @@ function getCert($id){
 
   $sql = "Select C.cert AS cert FROM Certificats C INNER JOIN Tokens T ON T.id_cert = C.id_cert INNER JOIN Electeurs E ON E.id_token = T.id_token where id_electeur = $id";
 
-  $req = mysql_query($sql);
+  $req = mysql_query(securite_bdd($sql));
 
   $data = mysql_fetch_assoc($req);
 
@@ -56,7 +58,7 @@ function addElecteur($id_electeur, $id_token, $secret){
   
   $sql = "INSERT INTO Electeurs (id_electeur, id_token, secret, A_vote) VALUES ($id_electeur, $id_token, $secret, 0)";
 
-  $req = mysql_query($sql);
+  $req = mysql_query(securite_bdd($sql));
 
 }
 
@@ -66,7 +68,7 @@ function updateElecteur($id, $attribut, $value){
 
   $sql = "UPDATE Electeurs SET $attribut = $value WHERE id_electeur = $id";
 
-  $req = mysql_query($sql);
+  $req = mysql_query(securite_bdd($sql));
 
 }
 
@@ -76,7 +78,7 @@ function deleteElecteur($id){
 
   $sql = "DELETE FROM Electeurs where id_electeur = $id";
 
-  $req = mysql_query($sql);
+  $req = mysql_query(securite_bdd($sql));
 
 }
 

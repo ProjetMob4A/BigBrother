@@ -2,12 +2,13 @@
 
 require_once('connexion.php');
 require_once('securite.php');
+require_once('electeurs.php');
 
 session_start();
 
 $db = mysql_connect('localhost', 'root', 'azerty');
 
-mysql_select_db('web',$db);
+mysql_select_db('bigbrother',$db);
 
 ?>
 
@@ -29,25 +30,19 @@ mysql_select_db('web',$db);
 
 <?php
 
-$id = securite_bdd($_POST["id"]);
+$secret_in = securite_bdd($_POST["secret"]);
 
-$pass = securite_bdd($_POST["password"]);
+$id = $_SESSION["id"];
 
-$_SESSION["id"]=$id;
+if (checkSecret($id, $secret_in)){
 
-$_SESSION["password"]=$pass;
-
-echo $id.$pass;
-
-if (checkPassword($id, $pass)){
-
-	$_SESSION['password_checked'] = 1;
-
-	header('Location: token.php');
+	$_SESSION['secret_checked'] = 1;
+	
+	header('Location: vote.php');
 }
 
 else{
-	header('Location: index.html');
+	header('Location: token.php');
 }
 
 mysql_close();

@@ -1,6 +1,7 @@
 <?php
 
-require('connexion.php');
+require_once('connexion.php');
+require_once('securite.php');
 
 session_start();
 
@@ -26,11 +27,11 @@ mysql_select_db('bigbrother',$db);
 
 <?php
 
-require('electeurs.php');
+require_once('electeurs.php');
 
-require('candidats.php');
+require_once('candidats.php');
 
-$id_candidat = $_POST["id"];
+$id_candidat = securite_bdd($_POST["id"]);
 
 $avote = getAvote($_SESSION['id']);
 

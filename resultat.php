@@ -6,7 +6,9 @@
 
     <meta charset="UTF-8" />
 
-    <title>Résultats</title>
+    <link rel="stylesheet" type="text/css" href="css/resultat.css">
+    <link rel="icon" href="img/title.png" />
+    <title>Elections 2017</title>
 
   </head>
 
@@ -14,11 +16,12 @@
 
   <body>
 
+    <img src="img/title.png" alt="elections 2017" />
     <h1>Résultats</h1>
 
 <?php
 
-require('candidats.php');
+require_once('candidats.php');
 
 $db = mysql_connect('localhost', 'root', 'azerty');
 
@@ -28,7 +31,8 @@ $req = getResults();
 
 while($data = mysql_fetch_assoc($req)){
 
-  echo $data['Nom'].' '.$data['id_candidat'].' | Score :'.$data['Score'].'<br>';
+
+  echo '<h3>'.$data['Nom'].' IDENTIFIANT : '.$data['id_candidat'].' SCORE : '.$data['Score'].'</h3>';
 
 }
 

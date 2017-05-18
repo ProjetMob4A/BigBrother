@@ -6,30 +6,33 @@
 
     <meta charset="UTF-8" />
 
-    <title>Page de Vote</title>
+    <link rel="stylesheet" type="text/css" href="css/vote.css">
+    <link rel="icon" href="img/title.png" />
+    <title>Elections 2017</title>
 
   </head>
 
-
-
   <body>
 
-    <h1>Page de vote</h1>
-
-
-
-    <h2>Liste des candidats</h2>
+    <img src="img/title.png" alt="elections 2017" />
+    <h1>Liste des candidats</h1>
 
 
 <?php
 
-require('candidats.php');
+require_once('candidats.php');
 
 $db = mysql_connect('localhost', 'root', 'azerty');
 
 mysql_select_db('bigbrother',$db);
 
-// Récpère liste candidats
+session_start();
+
+if ($_SESSION['secret_checked'] != 1 or $_SESSION['password_checked'] != 1)
+
+  header('Location: index.html');
+
+// Récupère liste candidats
 
 $req = listAll();
 
@@ -37,7 +40,7 @@ $req = listAll();
 
 while($data = mysql_fetch_assoc($req)){
 
-  echo $data['Nom'].' '.$data['id_candidat'].'<br>';
+  echo '<h3>'.$data['Nom'].' IDENTIFIANT : '.$data['id_candidat'].'</h3>';
 
 }
 
@@ -45,11 +48,11 @@ while($data = mysql_fetch_assoc($req)){
 
     <form name="vote" method="post" action="soumission_vote.php">
 
-    <table><tr><td><label>Vote</label></td>
+    <table><tr><td><label>Votre choix : </label></td>
 
-      <td><input type="text" name="id" placeholder="Identifiant" required></td></tr>
+      <td><input type="text" name="id" placeholder="identifiant" required></td></tr>
 
-      <tr><td><input type="submit" name="Nom" value="Envoyer"></td>
+      <tr><td><input type="submit" name="Nom" value="A voté"></td>
 
       <td></td></tr>
 
