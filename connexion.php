@@ -1,4 +1,4 @@
-<?phe
+<?php
 
 require_once('securite.php');
 require_once('electeurs.php');
