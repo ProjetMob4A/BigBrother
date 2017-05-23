@@ -1,19 +1,7 @@
-<?php
+<?phe
 
 require_once('securite.php');
 require_once('electeurs.php');
-
-// Page connexion
-
-function register($id, $passwd){
-
-  $sql = "INSERT INTO Users (id, Password) VALUES ($id, $passwd)";
-
-  $req = mysql_query(securite_bdd($sql));
-
-  return 0;
-
-}
 
 // Vérifie mot de passe
 

@@ -37,8 +37,6 @@ $_SESSION["id"]=$id;
 
 $_SESSION["password"]=$pass;
 
-echo $id.$pass;
-
 if (checkPassword($id, $pass)){
 
 	$_SESSION['password_checked'] = 1;

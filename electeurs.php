@@ -55,10 +55,12 @@ function getCert($id){
 // Ajoute un électeur
 
 function addElecteur($id_electeur, $id_token, $secret){
-  
-  $sql = "INSERT INTO Electeurs (id_electeur, id_token, secret, A_vote) VALUES ($id_electeur, $id_token, $secret, 0)";
 
-  $req = mysql_query(securite_bdd($sql));
+  $sql = "INSERT INTO Electeurs (id_electeur, id_token, secret, A_vote) VALUES ($id_electeur, $id_token, \"$secret\", 0)";
+
+  echo $sql;
+
+  $req = mysql_query($sql);
 
 }
 
@@ -68,7 +70,7 @@ function updateElecteur($id, $attribut, $value){
 
   $sql = "UPDATE Electeurs SET $attribut = $value WHERE id_electeur = $id";
 
-  $req = mysql_query(securite_bdd($sql));
+  $req = mysql_query($sql);
 
 }
 
