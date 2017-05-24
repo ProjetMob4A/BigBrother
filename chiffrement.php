@@ -34,7 +34,7 @@ function rsa_encrypt($id, $message){
 
   $rep = getTokenPublicKey($id);
 
-  $message = strToInt($message);
+  //$message = strToInt($message);
 
   parse_str($rep, $output);
 

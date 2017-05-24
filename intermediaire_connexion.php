@@ -45,6 +45,7 @@ if (checkPassword($id, $pass)){
 }
 
 else{
+
 	header('Location: index.html');
 }
 
