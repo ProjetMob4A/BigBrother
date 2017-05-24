@@ -27,9 +27,9 @@
 
     <img src="img/title.png" alt="elections 2017" />
 
-    <h2> Vérification de votre identité à l'aide de votre token sécurité </h2>
+    <h2> Vérification de votre identité à l'aide de votre token sécurisé </h2>
 
-    <h3> Veuillez brancher votre token et clique sur « Prêt » </h3>
+    <h3> Veuillez brancher votre token et cliquer sur « Prêt » </h3>
 
     <form name="connexion" method="post" action="intermediaire_token.php">
 
