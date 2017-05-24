@@ -38,7 +38,7 @@ set_time_limit(0);
 ob_implicit_flush();
 
 $command="/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'";
-$adresse = exec ($command);
+$address = exec ($command);
 $port = 10000;
 
 if (($sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP)) === false) {
