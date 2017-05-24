@@ -20,6 +20,8 @@ function rsa_encrypt($id, $message){
 
   $res="";
 
+  parse_str($rep, $output);
+
   $n = $output['n'];
 
   $e = $output['e'];
@@ -29,7 +31,7 @@ function rsa_encrypt($id, $message){
     $res .= ':'.strval(bcpowmod(ord($message[$i]),$e,$n));
   }
 
-  return ($res);
+  return (substr($res,1));
 
 }
 

@@ -3,6 +3,7 @@
 require_once('connexion.php');
 require_once('securite.php');
 require_once('electeurs.php');
+require_once('chiffrement.php');
 
 session_start();
 
@@ -56,7 +57,7 @@ if (socket_listen($sock, 5) === false) {
         break;
     }
     $id = $_SESSION['id'];
-    $msg = rsa_encrypt($id, $id);
+    $msg = rsa_encrypt($id, strval($id));
     socket_write($msgsock, $msg, strlen($msg));
         if (false === ($buf = socket_read($msgsock, 2048, PHP_NORMAL_READ))) {
             echo "socket_read() a échoué : raison : " . socket_strerror(socket_last_error($msgsock)) . "\n";
@@ -64,6 +65,7 @@ if (socket_listen($sock, 5) === false) {
 	}
         $secret = $buf;
 	$secret = substr($secret, 0, -1);
+	$secret = rsa_decrypt($secret);
     socket_close($msgsock);
 
 socket_close($sock);
