@@ -45,7 +45,7 @@ function rsa_decrypt($c){
 
     for ($i=0; $i < $len; $i++){ 
 
-      $res .= chr(bcpowmod(intval($chars[$i]),$ds,$ns));
+      $res .= chr(bcpowmod(intval(hexdec($chars[$i])),$ds,$ns));
 
     }
 
