@@ -17,7 +17,11 @@
 --	| Tokens               |
 --	+----------------------+
 
+DROP DATABASE IF EXISTS bigbrother;
 
+CREATE DATABASE bigbrother;
+
+USE bigbrother;
 
 CREATE TABLE Candidats (id_candidat INT not null, Nom VARCHAR (255) not null, Score INT not null, PRIMARY KEY (id_candidat));
 

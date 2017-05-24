@@ -1,3 +1,9 @@
+DROP DATABASE IF EXISTS web;
+
+CREATE DATABASE web;
+
+USE web;
+
 CREATE TABLE Users (id INT not null, Password VARCHAR (255), PRIMARY KEY (id));
 
 INSERT INTO Users (id, Password) VALUES (0,"unicorn");
