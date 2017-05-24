@@ -2,27 +2,9 @@
 
 require_once('electeurs.php');
 
-$ns = 1370477;
-$es = 377;
-$ds = 112493;
-
-function strToInt($string){
-    $hex = '';
-    for ($i=0; $i<strlen($string); $i++){
-        $ord = ord($string[$i]);
-        $hexCode = dechex($ord);
-        $hex .= substr('0'.$hexCode, -2);
-    }
-    return hexdec($hex);
-}
-function intToStr($int){
-    $hex=dechex($int);
-    $string='';
-    for ($i=0; $i < strlen($hex)-1; $i+=2){
-        $string .= chr(hexdec($hex[$i].$hex[$i+1]));
-    }
-    return $string;
-}
+$ns = 219;
+$es = 5;
+$ds = 29;
 
 function getTokenPublicKey($id_electeur){
 
@@ -34,21 +16,40 @@ function rsa_encrypt($id, $message){
 
   $rep = getTokenPublicKey($id);
 
-  //$message = strToInt($message);
+  $len = strlen($message);
 
-  parse_str($rep, $output);
+  $res="";
 
   $n = $output['n'];
 
   $e = $output['e'];
 
-  return (pow($message, $e) % $n);
+  for ($i=0; $i < $len; $i++){
+
+    $res .= ':'.strval(bcpowmod(ord($message[$i]),$e,$n));
+  }
+
+  return ($res);
 
 }
 
 function rsa_decrypt($c){
 
-    return intToStr(pow($c, $ds) % $ns);
+    global $ns, $ds;
+
+    $chars = preg_split('/:/',$c, -1, PREG_SPLIT_NO_EMPTY);
+
+    $res = "";
+
+    $len = sizeof($chars);
+
+    for ($i=0; $i < $len; $i++){ 
+
+      $res .= chr(bcpowmod(intval($chars[$i]),$ds,$ns));
+
+    }
+
+    return $res;
 
 }
 

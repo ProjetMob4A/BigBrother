@@ -35,8 +35,6 @@
 
     <table>
 
-      <tr><td>Secret : <input type="password" name="secret"</td>
-
       <tr><td><input type="submit" name="Nom" value="Prêt"></td>
 
       <td></td></tr>
