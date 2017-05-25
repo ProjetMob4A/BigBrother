@@ -6,15 +6,28 @@ USE web;
 
 CREATE TABLE Users (id INT not null, Password VARCHAR (255), PRIMARY KEY (id));
 
-INSERT INTO Users (id, Password) VALUES (0,"unicorn");
-INSERT INTO Users (id, Password) VALUES (1,"dragon");
-INSERT INTO Users (id, Password) VALUES (2,"zwei");
-INSERT INTO Users (id, Password) VALUES (3,"machin");
-INSERT INTO Users (id, Password) VALUES (4,"truc");
-INSERT INTO Users (id, Password) VALUES (5,"bidule");
-INSERT INTO Users (id, Password) VALUES (6,"etc");
-INSERT INTO Users (id, Password) VALUES (7,"123456");
-INSERT INTO Users (id, Password) VALUES (8,"adrien");
-INSERT INTO Users (id, Password) VALUES (9,"zweisamkeit");
+/*********
 
+sha256(BAUDELAIREunicorn) = a3ed7b8c6acc9a1d1172b8ce22787f2a3b1ed8de128640a896c7e00cae894920
+sha256(BAUDELAIREdragon) = a4afe2ae5c3b461cbeb3fe6579137ab5e5fc7daccc5e341363aaeff72bcc765f
+sha256(BAUDELAIREzwei) = 61150875f30eb593ff55f9d028246405e2937a50645a365fdaff53a18b436a33
+sha256(BAUDELAIREmachin) = 02dd779b3a3983e57fbc6dbb4d568ffba216445a2cc9d87ad3d3d4623611bbe6
+sha256(BAUDELAIREtruc) = 1651e5da9ce6d8b00c51fb16f5f23f6db058c079a637f7b6856f2fa3e0ac3dc6
+sha256(BAUDELAIREbidule) = 27eddf53b8e2303818448eaeec569f1c7ebb9e67e8a0517321fc59cfffe5f171
+sha256(BAUDELAIREetc) = f9bd6e1f485178324c6ce12cd8d2f21193048bc5b16c4b10e3b85c2c0e09a532
+sha256(BAUDELAIRE123456) = 2bf599dd896b5e136d3b1aba557e07e1ad1a9ca9b259402c37d64a70f6c1314c
+sha256(BAUDELAIREadrien) = 794c6226d454473912f1eedcad3cc86416435cadc1f4df04b00375441ae1d626
+sha256(BAUDELAIREzweisamkeit) = d4ac951c9590beca704c096441d33d546c01bdf53f7711a5c7c3dfe26592244d
 
+*******/
+
+INSERT INTO Users (id, Password) VALUES (0,"a3ed7b8c6acc9a1d1172b8ce22787f2a3b1ed8de128640a896c7e00cae894920");
+INSERT INTO Users (id, Password) VALUES (1,"a4afe2ae5c3b461cbeb3fe6579137ab5e5fc7daccc5e341363aaeff72bcc765f");
+INSERT INTO Users (id, Password) VALUES (2,"61150875f30eb593ff55f9d028246405e2937a50645a365fdaff53a18b436a33");
+INSERT INTO Users (id, Password) VALUES (3,"02dd779b3a3983e57fbc6dbb4d568ffba216445a2cc9d87ad3d3d4623611bbe6");
+INSERT INTO Users (id, Password) VALUES (4,"1651e5da9ce6d8b00c51fb16f5f23f6db058c079a637f7b6856f2fa3e0ac3dc6");
+INSERT INTO Users (id, Password) VALUES (5,"27eddf53b8e2303818448eaeec569f1c7ebb9e67e8a0517321fc59cfffe5f171");
+INSERT INTO Users (id, Password) VALUES (6,"f9bd6e1f485178324c6ce12cd8d2f21193048bc5b16c4b10e3b85c2c0e09a532");
+INSERT INTO Users (id, Password) VALUES (7,"2bf599dd896b5e136d3b1aba557e07e1ad1a9ca9b259402c37d64a70f6c1314c");
+INSERT INTO Users (id, Password) VALUES (8,"794c6226d454473912f1eedcad3cc86416435cadc1f4df04b00375441ae1d626");
+INSERT INTO Users (id, Password) VALUES (9,"d4ac951c9590beca704c096441d33d546c01bdf53f7711a5c7c3dfe26592244d");

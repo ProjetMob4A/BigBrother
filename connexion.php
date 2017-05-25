@@ -7,13 +7,17 @@ require_once('electeurs.php');
 
 function checkPassword($id, $passwd_in){
 
+  $salt = 'BAUDELAIRE';
+
+  $passwd_in = securite_bdd($passwd_in);
+
   $sql = "SELECT Password FROM Users WHERE id = $id";
 
   $req = mysql_query(securite_bdd($sql));
 
   $data = mysql_fetch_assoc($req);
 
-  if ($data['Password'] === $passwd_in)
+  if ($data['Password'] === hash('sha256', $salt . $passwd_in))
 
     return 1;
 
